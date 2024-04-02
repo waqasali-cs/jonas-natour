@@ -1,0 +1,48 @@
+.row{
+    max-width: $grid-width;
+    width: 100%;
+    // background-color: #eee;
+    margin: 0 auto;
+    
+    @include respond(tab-port){
+        padding: 0 2rem;
+        width: 60rem;
+    }
+    
+    @include respond(phone){
+        width: 40rem;
+    }
+       
+    [class^="col-"] {
+        float: left;
+        &:not(:last-child){
+            margin-right: $gutter-horizontal-big;
+
+        }
+        @include respond(tab-port){
+            float: none;
+            width: 100% !important; 
+        }
+
+        
+    }
+    
+    
+    .col-1-of-2{
+        width: calc((100% - #{$gutter-horizontal-big}) / 2);
+        // float: left;
+        // &:not(:last-child){
+            //     margin-right: $gutter-horizontal-big;
+            // }
+    }
+    .col-1-of-3{
+        width: calc((100% - 2 * #{$gutter-horizontal-big}) / 3);
+    }
+
+
+    .col-1-of-4{
+        // float: left;
+        width: calc((100% - 3 * #{$gutter-horizontal-big}) / 4) ;
+    }
+    @include clearfix;
+}

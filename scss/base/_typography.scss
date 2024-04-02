@@ -1,0 +1,100 @@
+body{
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #777;
+    
+}
+
+
+.heading-primary{
+    
+        color: #fff;
+        text-transform: uppercase;
+        /* border: 4px solid red; */
+        margin-bottom: 6rem;
+        
+        &-main{
+            display: block;
+            font-size: 6rem;
+            font-weight: 400;
+            letter-spacing: 3.5rem;
+
+            animation: move 1s ease-in;
+
+            @include respond(tab-port){
+                letter-spacing: 3rem;
+            }
+
+            @include respond(phone){
+                letter-spacing: 2rem;
+                font-size: 4rem;
+            }
+        }
+        
+        &-sub{
+            display: block;
+            font-size: 15px;
+            font-weight: 400;
+            letter-spacing: 2rem;
+            animation: move-sub 1s ease-in;
+
+            @include respond (tab-port){
+                letter-spacing: 1.5rem;
+            }
+
+            @include respond(phone){
+                letter-spacing: 1rem;
+            }
+        } 
+    }
+
+.heading-secondary{
+    font-size: 3.5rem;
+    display: inline-block;
+    font-weight: 700;
+    color: transparent;
+    background-size: contain;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+    transition: all 0.2s;
+    // border: 4px solid red;
+    background-image: linear-gradient(
+        to right, 
+        $color-Light-green, 
+        $color-Dark-green
+        );
+
+    background-clip: text;
+    -webkit-background-clip: text;
+        
+    &:hover{
+        transform: skewX(15deg) skewY(2deg) scale(1.1) ;
+        text-shadow: .5rem 1rem 2rem rgba($color-black,0.2);
+    }
+
+    @include respond(tab-port){
+        font-size: 3rem;
+    }
+    @include respond(phone){
+        font-size: 2.5rem;
+        padding: 0 1rem;
+    }
+
+}
+
+.heading-tertiary{
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.paragraph{
+    font-size: 1.6rem;
+
+    
+    &:not(:last-child){
+        margin-bottom: $gutter-vertical-small;
+    }
+}

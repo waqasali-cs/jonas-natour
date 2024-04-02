@@ -1,0 +1,89 @@
+// 
+.story{
+    width: 75%;
+   margin: 0 auto; 
+//    border: 1px solid red;
+   background-color: rgba($color-white,0.6);
+   padding: 6rem;
+   padding-left: 9rem;
+   border-radius: 3px;
+   box-shadow: 0 1.5rem 6rem rgba($color-black,0.1);
+   transform: skewX(-12deg);
+   &:not(:last-child){
+      margin-bottom: 8rem;
+   }
+   @include respond(tab-port){
+      width: 100%;
+      transform: skew(-5deg);
+      padding: 5rem;
+   }
+   @include respond(phone){
+      transform: skew(0);
+      padding: 3rem;
+   }
+   
+   
+   &__shape{
+       width: 15rem;
+       height: 15rem;
+       float: left;
+       transform: translateX(-3rem) skewX(12deg);
+       clip-path: circle(50% at 50% 50%);
+       shape-outside: circle(50% at 50% 50%);
+       -webkit-shape-outside: circle(50% at 50% 50%);
+       position: relative;
+
+
+       @include respond(tab-port){
+         transform: translateX(-3rem) skew(5deg);
+       }
+       @include respond(phone){
+         transform: skew(0);
+         float: none;
+         margin: auto;
+       }
+       
+      
+    }
+    &__img{
+        height: 100%;
+        transform: translateX(-4rem) scale(1.5);
+        transition: all 0.5s;
+        
+        &--caption{
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, 20%);
+         color: white;
+         font-size: 1.7rem;
+         text-align: center;
+         text-transform: uppercase;
+         opacity: 0;
+         transition: all 0.5s;
+        }
+    
+    }
+   &__text{
+       transform: skewX(12deg);
+
+       @include respond(tab-port){
+         transform: skewX(5deg);
+         padding-top: 1rem;
+       }
+       @include respond(phone){
+         transform: skew(0);
+         padding-top: 1rem;
+         text-align: center;
+       }
+       
+    }
+   &:hover &__img--caption{
+    opacity: 1;
+    transform: translate(-50%, -50%);
+   }
+   &:hover &__img{
+    transform: translateX(-4rem) scale(1);
+    filter: blur(3px) brightness(70%);
+   }
+}

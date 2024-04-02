@@ -1,0 +1,55 @@
+@mixin clearfix{
+    display:table;
+    clear:both;
+}
+
+@mixin tour-card-back ($x,$y) {
+    
+    background-image: linear-gradient(to right bottom, $x,$y );  
+}
+
+
+
+
+@mixin tour-pics ($x,$y,$image-name) {
+    
+    background-image:linear-gradient(to right, $x,$y), url(../img/#{$image-name}.jpg);
+}
+
+@mixin txt-gradient ($x,$y) {
+    
+    background-image: linear-gradient(to right bottom, rgba($x, 0.6), rgba($y,0.6));
+
+}
+
+/*
+0 - 600px:      phone
+601px - 900px:   tablet portrait
+901px - 1200px:  tablet landscape
+1201px - 1800:   Where our noral style applies
+1800px + :       Big desktop
+
+breakpoints
+-phone
+-tab-port
+-tab-land
+-big-desktop
+
+1em = 16px
+
+*/
+
+@mixin respond($breakpoint){
+    @if $breakpoint == phone {
+        @media (max-width: 37.5em) {@content}; //600px
+    }
+    @if $breakpoint == tab-port {
+        @media (max-width:56.25em ) {@content}; //900
+    }
+    @if $breakpoint == tab-land {
+        @media (max-width: 75em) {@content}; //1200
+    }
+    @if $breakpoint == big-desktop {
+        @media (min-width: 112.5em) {@content}; //1800
+    }
+}
